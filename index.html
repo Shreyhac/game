@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental School Survival Simulator 2026</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon (Emoji for now) -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦷</text></svg>">
+</head>
+
+<body>
+
+    <div class="background-container">
+        <div class="gradient-bg"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <main class="app-container">
+
+        <!-- LOADING SCREEN -->
+        <section id="loading-screen" class="screen active">
+            <div class="glass-card loading-card">
+                <div class="dental-icon-large">🦷</div>
+                <h1>Dental School Survival Simulator 2026</h1>
+                <p>Initializing Clinical Scenarios...</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="loading-bar"></div>
+                </div>
+                <button id="start-btn" class="btn primary-btn hidden">Start Exam</button>
+            </div>
+        </section>
+
+        <!-- GAME UI WRAPPER (Levels 1-3) -->
+        <section id="game-screen" class="screen hidden">
+            <div class="header-status">
+                <div class="level-indicator">Level <span id="current-level-num">1</span>/4</div>
+                <div class="score-display hidden">Score: <span id="score">0</span></div>
+            </div>
+
+            <div class="glass-card question-card">
+                <div class="question-header">
+                    <span id="level-title" class="level-badge">Anatomy Exam</span>
+                </div>
+
+                <div id="question-container">
+                    <!-- Dynamic Question Content -->
+                    <h2 id="question-text">Question text goes here</h2>
+                    <div id="media-container" class="media-container hidden"></div>
+                    <div id="options-grid" class="options-grid">
+                        <!-- Options injected via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="next-btn" class="btn secondary-btn hidden">Next Question <span
+                        class="arrow">→</span></button>
+            </div>
+        </section>
+
+        <!-- LEVEL 4: THE DIAGNOSIS (Reveal) -->
+        <section id="diagnosis-screen" class="screen hidden">
+            <div class="glass-card diagnosis-card">
+                <div class="medical-header">
+                    <div class="warning-icon">⚠️</div>
+                    <h3>URGENT CASE FILE #020826</h3>
+                </div>
+
+                <div class="patient-profile">
+                    <div class="profile-row">
+                        <span class="label">PATIENT:</span>
+                        <span class="value">[REDACTED - But you know who]</span>
+                    </div>
+                    <div class="profile-row">
+                        <span class="label">CONDITION:</span>
+                        <span class="value">Chronic "Missing Eshii" Syndrome</span>
+                    </div>
+
+                    <div class="chief-complaint">
+                        <h4>CHIEF COMPLAINT:</h4>
+                        <p>"I think I'm deeply, hopelessly, completely in love"</p>
+                    </div>
+
+                    <div class="vitals-grid">
+                        <div class="vital-item">
+                            <span class="vital-label">Heart Rate</span>
+                            <span class="vital-value">Elevated 💓</span>
+                        </div>
+                        <div class="vital-item">
+                            <span class="vital-label">Happiness</span>
+                            <span class="vital-value">1000%</span>
+                        </div>
+                    </div>
+
+                    <div class="diagnosis-conclusion">
+                        <h4>DIAGNOSTIC FINDINGS:</h4>
+                        <p>Patient exhibits severe dependency. Only known cure: Commitment. Prognosis: Excellent with
+                            proper treatment.</p>
+                    </div>
+                </div>
+
+                <div class="treatment-options">
+                    <h4>RECOMMENDED TREATMENT:</h4>
+                    <div class="treatment-cards">
+                        <button class="treatment-card" data-action="reject">
+                            <div class="icon">📏</div>
+                            <span>Prescribe Distance</span>
+                        </button>
+                        <button class="treatment-card" data-action="reject">
+                            <div class="icon">👨‍⚕️</div>
+                            <span>Refer Specialist</span>
+                        </button>
+                        <button class="treatment-card special" data-action="accept">
+                            <div class="icon">💍</div>
+                            <span>Say YES to Forever ❤️</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIDEO REVEAL SECTION -->
+        <section id="video-screen" class="screen hidden">
+            <div class="video-overlay">
+                <div class="glass-card video-card">
+                    <div class="video-wrapper">
+                        <!-- YouTube Embed -->
+                        <iframe id="youtube-player" src="https://www.youtube.com/embed/EMr18nAixak?enablejsapi=1&rel=0"
+                            title="Proposal Video" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                        <div class="fallback-message hidden">
+                            <p>Video not loaded. (Tap to play)</p>
+                        </div>
+                    </div>
+                    <div class="video-caption">
+                        <h2>For Eshii, the most amazing person I know ❤️</h2>
+                        <p class="date">Propose Day, February 8, 2026</p>
+                        <p class="sub-caption">No matter what the 'diagnosis' was... the answer is always you.</p>
+                    </div>
+                    <button id="replay-btn" class="btn text-btn">Replay Moment ↺</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Overlay Effects -->
+    <div id="flash-overlay" class="flash-overlay"></div>
+    <div id="confetti-container" class="confetti-container"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
