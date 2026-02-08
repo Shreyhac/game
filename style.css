@@ -470,20 +470,85 @@ iframe {
 
 /* Responsive */
 @media (max-width: 600px) {
-    .loading-card {
+    .app-container {
+        padding: 5px;
+        min-height: 100vh;
+        height: auto;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .glass-card {
+        padding: 20px;
+        margin: 20px 0;
         width: 100%;
     }
 
-    .treatment-cards {
-        grid-template-columns: 1fr;
-        /* Stack on mobile */
-    }
-
-    .app-container {
-        padding: 10px;
+    .loading-card {
+        width: 100%;
+        margin-top: 10vh;
     }
 
     h1 {
         font-size: 1.5rem;
+    }
+
+    #question-text {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .option-btn {
+        padding: 14px 15px;
+        font-size: 1rem;
+    }
+
+    .treatment-cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .treatment-card {
+        flex-direction: row;
+        align-items: center;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .treatment-card .icon {
+        font-size: 1.8rem;
+        margin-bottom: 0;
+    }
+
+    /* Video Optimization */
+    .video-card {
+        max-width: 100%;
+        padding: 5px;
+        border-width: 1px;
+    }
+
+    .video-wrapper {
+        border-radius: 8px;
+    }
+
+    .video-caption {
+        padding: 15px 5px;
+    }
+
+    .video-caption h2 {
+        font-size: 1.4rem;
+    }
+
+    .video-backup-controls .btn {
+        width: 100%;
+        white-space: normal;
+        margin-top: 10px;
+    }
+
+    /* Ensure footer/feedback doesn't cover content */
+    body {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
     }
 }
